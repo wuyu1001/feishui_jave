@@ -1,0 +1,3 @@
+server:
+  port: 8081
+feishui_url: http://192.169.1.219

@@ -30,12 +30,39 @@ public class controller1 {
     @Value("${feishui_url}")
     String feishui_url;
 
+    @RequestMapping(value = "/upload_stuinfo_feishui", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String uploadstuinfofeishui(HttpServletRequest request) throws Exception {
+        JSONObject jsonParam = this.getJSONParam(request);
+        String arrinfo = jsonParam.getString("arrinfo");
+        String url = feishui_url + "/api/creditSchool/HnfsRecJc";
+        Map<String, String> result = HnfsRecjc(url, arrinfo, "01");
+        return JSONObject.toJSONString(result);
+    }
+
+    @RequestMapping(value = "/upload_stuinfo_1_feishui", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String uploadstuinfo1feishui(HttpServletRequest request) throws Exception {
+        JSONObject jsonParam = this.getJSONParam(request);
+        String arrinfo = jsonParam.getString("arrinfo");
+        String url = feishui_url + "/api/creditSchool/HnfsRecJc";
+        Map<String, String> result = HnfsRecjc(url, arrinfo, "04");
+        return JSONObject.toJSONString(result);
+    }
+
     @RequestMapping(value = "/upload_stuinfo_2_feishui", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String uploadstuinfo2feishui(HttpServletRequest request) throws Exception {
         JSONObject jsonParam = this.getJSONParam(request);
         String arrinfo = jsonParam.getString("arrinfo");
         String url = feishui_url + "/api/creditSchool/HnfsRecJc";
-        Map<String, String> result = HnfsRecjc(url, arrinfo, "01");
+        Map<String, String> result = HnfsRecjc(url, arrinfo, "02");
+        return JSONObject.toJSONString(result);
+    }
+
+    @RequestMapping(value = "/upload_stuinfo_3_feishui", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String uploadstuinfo3feishui(HttpServletRequest request) throws Exception {
+        JSONObject jsonParam = this.getJSONParam(request);
+        String arrinfo = jsonParam.getString("arrinfo");
+        String url = feishui_url + "/api/creditSchool/HnfsRecJc";
+        Map<String, String> result = HnfsRecjc(url, arrinfo, "03");
         return JSONObject.toJSONString(result);
     }
 
